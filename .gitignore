@@ -8,6 +8,7 @@ user.yaml
 sync/*
 luna_pinyin.userdb/*
 wubi86_jidian.userdb
+wubi86_jidian.userdb.txt
 user.txt
 pinyin_simp.userdb/*
 
