@@ -76,6 +76,7 @@ translator:
   enable_encoder: false                 # 不自动造词组
   static_user_dict_weights: true        # 冻结用户词频，不随使用动态调整
   db_class: plain_userdb               # 用户词典文本格式，可直接查看
+  text_userdb_sync: true               # 每次更新用户词典后实时写入磁盘
   encode_commit_history: false          # 不上屏后自动造词
   preedit_format:                       # 上屏码自定义
 #    - xform/.+//
