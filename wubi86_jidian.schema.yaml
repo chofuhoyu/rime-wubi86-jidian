@@ -33,6 +33,7 @@ engine:
   processors:
     - ascii_composer
     - recognizer
+    - phrase_encoder         # Ctrl+= 手动造词
     - pin_processor          # Ctrl+1~9 置顶候选词
     - key_binder
     - speller
