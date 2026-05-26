@@ -51,6 +51,7 @@ engine:
     - punct_translator
     - reverse_lookup_translator
     - table_translator
+    - echo_translator
     - lua_translator@*wubi86_jidian_date_translator # 日期、时间、星期
     - history_translator@repeat_last_input # 重复上一次输入，对应下面的 repeat_last_input
   filters:
