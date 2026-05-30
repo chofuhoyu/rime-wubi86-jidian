@@ -49,12 +49,14 @@ engine:
     - fallback_segmentor
   translators:
     - punct_translator
+    - table_translator@custom_phrase   # 自定义短语（emoji等）
     - reverse_lookup_translator
     - table_translator
     - echo_translator
     - lua_translator@*wubi86_jidian_date_translator # 日期、时间、星期
     - history_translator@repeat_last_input # 重复上一次输入，对应下面的 repeat_last_input
   filters:
+    - fixed_position_filter  # 自定义短语固定位置（必须在 pin_filter 之前）
     - pin_filter             # 去重：用户词典优先
     - simplifier@tradition
 #    - lua_filter@*wubi86_jidian_single_char_first_filter # 单字优先
@@ -67,6 +69,18 @@ engine:
 speller:
   auto_select: false                    # 四码唯一时不自动上屏，需手动空格
 #  auto_clear: max_length                # 空码时自动清空
+
+# 自定义短语（emoji、特殊符号等），纯配置、无需修改源码
+# 将 custom_phrase.txt 放到 Rime 用户目录即可
+custom_phrase:
+  dictionary: ""
+  user_dict: custom_phrase
+  db_class: stabledb                # 只读文本格式，不会被置顶修改
+  enable_completion: false
+  enable_sentence: false
+  initial_quality: 1                # 排在主码表之前
+  static_user_dict_weights: true
+  fixed_position: true              # 第三列为固定位置号（1=第一, 2=第二...）
 
 translator:
   dictionary: wubi86_jidian             # 翻译器将调取此字典文件
